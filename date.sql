@@ -1,0 +1,6 @@
+DECLARE @DateFrom DATETIME
+DECLARE @DateTo DATETIME
+
+SET @DateFrom='2019-05-10'
+
+SET @DateTo='2019-05-15'

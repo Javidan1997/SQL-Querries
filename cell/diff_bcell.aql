@@ -1,0 +1,13 @@
+SELECT  count(*), a.[TRANSACTIONID],a.[AMOUNT],m.paymentamnt,m.txnid,m.Status,CASE WHEN m.paymentamnt > 0 THEN 'MUSBET' ELSE 'MENFI' END
+ from [dbo].BakcellM m
+full join [dbo].bakcellall a
+on a.[TRANSACTIONID] =m.txnid
+and a.[AMOUNT] = m.paymentamnt  
+WHERE  
+ --or 
+
+  (a.[TRANSACTIONID] is null and m.Status=2) or
+ m.txnid is  null 
+ or (a.[TRANSACTIONID] is not null and m.Status<>2 and not exists (select * from [dbo].BakcellM c where c.txnid =m.txnid and c.status=2))
+  
+group by a.[TRANSACTIONID],m.paymentamnt,m.txnid,a.[AMOUNT],m.Status 

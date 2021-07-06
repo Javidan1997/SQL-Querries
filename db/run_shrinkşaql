@@ -1,0 +1,2 @@
+dbo.delete_shrink_service  @tomon = 12
+,@toyear= 2017;

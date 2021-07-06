@@ -1,0 +1,1 @@
+select * into gate211.dbo.NPayment from gate211.dbo.Payment with (nolock) where StatusDate between '2020-01-01' and '2020-02-01' or PayDate between '2020-01-01' and '2020-02-01' or ReceiveDate between '2020-01-01' and '2020-02-01'
