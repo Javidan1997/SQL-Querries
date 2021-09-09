@@ -1,0 +1,7 @@
+SELECT m.id_operation,  id_provider, id_service, account,  state, substate, time_point, time_server, time_process, ot.value azersu_txn
+from operations.master m 
+join operation_attributes ot on ot.id_operation =m.id_operation 
+where id_service=797 
+and ot."name" ='transaction-id'
+ AND time_process >= '2021-08-01'
+   and time_process < '2021-09-01'
